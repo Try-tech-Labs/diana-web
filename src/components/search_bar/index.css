@@ -1,0 +1,27 @@
+.seach-bar{
+    width: 45vw;
+    top: 2vh;
+    left: 32vw;
+}
+
+.seach-bar input{
+    height: 100%;
+}
+
+@media (min-width: 1100px){
+    .seach-bar{
+        width: 30vw;
+        left: 56vw;
+    }   
+}
+
+@media (max-width: 700px){
+    .seach-bar{
+        width: 58vw;
+        left: 2vw;
+    }
+
+    .logo{
+        margin-top: 2vw;
+    }
+}

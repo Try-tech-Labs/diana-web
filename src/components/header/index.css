@@ -1,0 +1,100 @@
+.carousel_image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 75vh;
+    top: 4vh;
+}
+
+.carrousel-image {
+    background: url('../../assets/images/banner.jpg') 0 0;
+    background-position: 0 65vh;
+    background-size: cover;
+    width: 100vw;
+    height: 60vh;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 45vw;
+    opacity: 0.5;;
+    transition: .5s ease;
+    background-color: #000;
+}
+
+
+.overlay-text {
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: justify;
+  }
+
+.logo {
+    width: 134px;
+    margin-top: 1vh;
+    height: 45px;
+    font-size: 1.5em;
+    font-family: 'Comfortaa', cursive;
+    margin-left: 2vw;
+}
+
+.header_elements {
+    display: flex;   
+}
+
+.overlay-text {
+    opacity: 1 !important;
+}
+
+.overlay-text strong{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.overlay-text span{
+    font-style: italic;
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    color: black;
+    padding: 0.3vw;
+}
+
+@media (min-width: 1100px){  
+    .carrousel-image {
+        background-position: 0 95vh;
+        height: 85vh;
+    }
+
+    .overlay-text {
+        font-size: 2.8em;
+        top: 45%;
+    }
+}
+
+@media (max-width: 700px){
+    .carrousel-image{
+        background-position: 180vw 70vh;
+    }
+
+    .image-overlay{
+        width: 60vw;
+    }
+
+    .overlay-text {
+        font-size: 1.8em;
+    }
+
+    .logo{
+        width: 110px;
+        margin-left: 0;
+        margin-top: 5vh;
+    }
+}
