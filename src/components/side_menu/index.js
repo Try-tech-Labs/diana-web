@@ -6,14 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SideMenu() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn btn-light">
-                    <FontAwesomeIcon icon={faBars} />
-                </button>
+        <div className="col col-sm-1 col-md-1">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-light">
+                        <FontAwesomeIcon icon={faBars} />
+                    </button>
 
-            </div>
-        </nav>
+                </div>
+            </nav>
+        </div>
     )
 }
 
