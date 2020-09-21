@@ -9,9 +9,11 @@ function App() {
       <div className="container-fluid App-body responsive">
         <SiteHeader />
         <div id="posts-content" className="row post_content">
-          <PostLineCard />
+          <div className="col col-md-12 post_card">
+            <PostLineCard />
+          </div>
         </div>
-      </div>      
+      </div>
     </div>
   );
 }
