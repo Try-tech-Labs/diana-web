@@ -1,0 +1,47 @@
+.post_card {
+    width: 95vw;
+    border-radius: 8px;
+    height: 30vh;
+    color: black;
+    text-align: center;
+    height: 100%;
+}
+
+.post_title{
+    font-family: 'Raleway', sans-serif;  
+    background-color: cadetblue;
+    border-radius: 8px 0 0 8px
+}
+
+
+.subject {
+    margin-top: 8vh;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 1em;
+    color: cornsilk;
+}
+
+
+.searches{
+    font-size: large;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    margin-top: 4vh;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.last_updated{
+    font-style: italic;
+    font-weight: 800;
+    font-size: small;
+    margin-top: 8vh;
+    color: aliceblue;
+}
+
+.card_content{
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 8vh;
+}

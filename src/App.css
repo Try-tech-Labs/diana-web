@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 .App-body {
@@ -11,4 +12,8 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.post_content {
+  margin-bottom: 2vh;
 }
