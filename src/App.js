@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SiteHeader from './components/header'
+import {SiteHeader, SiteFooter} from './components/site_shared/index'
 import PostLineCard from './components/post_card'
 
 function App() {
@@ -13,7 +13,8 @@ function App() {
             <PostLineCard />
           </div>
         </div>
-      </div>
+        <SiteFooter />
+      </div>           
     </div>
   );
 }
