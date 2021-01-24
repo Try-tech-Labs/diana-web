@@ -8,7 +8,7 @@ export default function HomePage(){
         <div id="home-page">
             <h1>DIANA</h1>
             <h3>YOUR NEW WAY TO CONSUME CONTENT</h3>
-            <a data-testid="arrow" href="/">
+            <a data-testid="arrow" href="#posts">
                 <div className="arrow">
                     <span></span>
                     <span></span>
