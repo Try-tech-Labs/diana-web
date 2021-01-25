@@ -21,12 +21,12 @@ describe("Posts page", () => {
     getByTestId("posts-page");
   });
 
-  it('renders the navigationbar', () => {
+  it("renders the navigationbar", () => {
     const { wrapper } = setup();
     const { getByText } = wrapper;
-    getByText("DIANA")
+    getByText("DIANA");
     getByText("Home");
     getByText("News letter");
     getByText("About");
-  })
+  });
 });

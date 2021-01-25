@@ -20,6 +20,6 @@ describe("Home page", () => {
     const { getByText, getByTestId } = wrapper;
     getByText("DIANA");
     getByText("YOUR NEW WAY TO CONSUME CONTENT");
-    getByTestId("arrow")
+    getByTestId("arrow");
   });
 });

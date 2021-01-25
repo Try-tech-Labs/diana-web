@@ -18,7 +18,7 @@ describe("NavigationBar", () => {
   it("renders with correct information", () => {
     const { wrapper } = setup();
     const { getByText } = wrapper;
-    getByText("DIANA")
+    getByText("DIANA");
     getByText("Home");
     getByText("News letter");
     getByText("About");
