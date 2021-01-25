@@ -10,7 +10,7 @@ const setup = () => {
   return { wrapper };
 };
 
-describe("Landing page", () => {
+describe("Home page", () => {
   afterEach(() => {
     cleanup();
   });

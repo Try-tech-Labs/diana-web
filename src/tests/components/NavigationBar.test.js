@@ -3,30 +3,24 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { cleanup, render } from "@testing-library/react";
 
-import PostsPage from "../../pages/PostsPage";
+import NavigationBar from "../../components/NavigationBar";
 
 const setup = () => {
-  const wrapper = render(<PostsPage />);
+  const wrapper = render(<NavigationBar />);
   return { wrapper };
 };
 
-describe("Posts page", () => {
+describe("NavigationBar", () => {
   afterEach(() => {
     cleanup();
   });
 
   it("renders with correct information", () => {
     const { wrapper } = setup();
-    const { getByTestId } = wrapper;
-    getByTestId("posts-page");
-  });
-
-  it('renders the navigationbar', () => {
-    const { wrapper } = setup();
     const { getByText } = wrapper;
     getByText("DIANA")
     getByText("Home");
     getByText("News letter");
     getByText("About");
-  })
+  });
 });
