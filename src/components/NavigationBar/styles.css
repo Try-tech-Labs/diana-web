@@ -1,0 +1,47 @@
+.header{
+    height: 80px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.header h1{
+    position: relative;
+    height: 60px;
+    margin: 8px 0 0 12vw;
+    font-size: 60px;
+    line-height: 66px;
+    color: #FFFFFF;
+    font-family: Arapey;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.navigation_menu {
+    position: relative;
+    grid-column-start: none;
+    right: 12vw;
+    width: auto;
+    height: 60px;
+    margin: 8px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    text-align: center;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.navigation_menu a{
+    text-decoration: none;
+    font-family: Archivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 60px;
+    color: white;
+    padding: 0 10px 0 10px;
+}
+
+.navigation_menu a:hover{
+    text-decoration: overline;
+}
