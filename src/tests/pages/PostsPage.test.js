@@ -10,7 +10,7 @@ const setup = () => {
   return { wrapper };
 };
 
-describe("Landing page", () => {
+describe("Posts page", () => {
   afterEach(() => {
     cleanup();
   });
@@ -19,5 +19,14 @@ describe("Landing page", () => {
     const { wrapper } = setup();
     const { getByTestId } = wrapper;
     getByTestId("posts-page");
+  });
+
+  it("renders the navigationbar", () => {
+    const { wrapper } = setup();
+    const { getByText } = wrapper;
+    getByText("DIANA");
+    getByText("Home");
+    getByText("News letter");
+    getByText("About");
   });
 });
