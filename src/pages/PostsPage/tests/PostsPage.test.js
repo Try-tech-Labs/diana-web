@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { cleanup, render } from "@testing-library/react";
 
-import PostsPage from "../../pages/PostsPage";
+import PostsPage from "../PostsPage";
 
 const setup = () => {
   const wrapper = render(<PostsPage />);
