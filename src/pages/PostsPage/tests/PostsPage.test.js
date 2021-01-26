@@ -29,4 +29,10 @@ describe("Posts page", () => {
     getByText("News letter");
     getByText("About");
   });
+
+  it('renders the current day post section', () =>{
+    const { wrapper } = setup();
+    const { getByText } = wrapper;
+    getByText("NOW")
+  })
 });
