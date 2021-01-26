@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './styles.css';
+import { HeaderContainer, MenuOptionsWrapper, MenuOption, HeaderTitle } from './styles'
 
 export default function NavigationBar(){
     return (
-        <div className="header">
-            <h1>DIANA</h1>
-            <div className="navigation_menu">
-                <a href="/">Home</a>
-                <a href="/">News letter</a>
-                <a href="/">About</a>
-            </div>
-        </div>
+        <HeaderContainer>
+            <HeaderTitle>DIANA</HeaderTitle>
+            <MenuOptionsWrapper>
+                <MenuOption href="/">Home</MenuOption>
+                <MenuOption href="/">News letter</MenuOption>
+                <MenuOption href="/">About</MenuOption>
+            </MenuOptionsWrapper>
+        </HeaderContainer>
     )
 }
