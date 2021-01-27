@@ -33,7 +33,9 @@ export const TwitterData = styled.div`
 `
 
 export const VideoData = styled.div`
+    margin: 0 auto;
 `
 
 export const NewsData = styled.div`
+    margin: 0 auto;
 `
