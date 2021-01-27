@@ -3,24 +3,23 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { cleanup, render } from "@testing-library/react";
 
-import NavigationBar from "../../components/NavigationBar";
+import HomePage from "../HomePage";
 
 const setup = () => {
-  const wrapper = render(<NavigationBar />);
+  const wrapper = render(<HomePage />);
   return { wrapper };
 };
 
-describe("NavigationBar", () => {
+describe("Home page", () => {
   afterEach(() => {
     cleanup();
   });
 
   it("renders with correct information", () => {
     const { wrapper } = setup();
-    const { getByText } = wrapper;
+    const { getByText, getByTestId } = wrapper;
     getByText("DIANA");
-    getByText("Home");
-    getByText("News letter");
-    getByText("About");
+    getByText("YOUR NEW WAY TO CONSUME CONTENT");
+    getByTestId("arrow");
   });
 });
