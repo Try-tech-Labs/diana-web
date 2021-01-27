@@ -23,4 +23,10 @@ describe("Current day post", () => {
         getByTestId('video-data')
         getByTestId('news-data')
     })
+
+    it('renders twitter button', () => {
+        const { wrapper } = setup();
+        const { getByText } = wrapper;
+        getByText('Tweets')
+    })
 })
