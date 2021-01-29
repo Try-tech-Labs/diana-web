@@ -1,20 +1,17 @@
 import React from 'react'
 
-import { Link, ButtonImage, LinkContent, LinkText} from './styles'
+import { Link, ButtonImage, LinkContent, LinkText } from './styles'
 
 interface InformationButton {
     logoImage: string,
-    buttonText: string
+    buttonText: string,
 }
 
 const InformationButton: React.FunctionComponent<InformationButton>= ({ logoImage, buttonText }) => {
-    const buttonProps = {
-        backgroundImage: logoImage
-    }
     return(
         <Link href="/">
             <LinkContent>
-                <ButtonImage data-testid="information-button-logo" {...buttonProps} />
+                <ButtonImage data-testid="information-button-logo" src={logoImage} />
                 <LinkText>{buttonText}</LinkText>
             </LinkContent>
         </Link>

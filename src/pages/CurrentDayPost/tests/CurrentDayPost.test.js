@@ -29,4 +29,10 @@ describe("Current day post", () => {
         const { getByText } = wrapper;
         getByText('Tweets')
     })
+
+    it('renders videos button', () => {
+        const { wrapper } = setup();
+        const { getByText } = wrapper;
+        getByText('Videos')
+    })
 })
