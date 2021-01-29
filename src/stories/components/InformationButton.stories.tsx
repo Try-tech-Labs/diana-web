@@ -6,7 +6,7 @@ import InformationButton from '../../components/InformationButton';
 
 import twitterLogo from '../../assets/images/twitter.svg';
 import youtubeLogo from '../../assets/images/youtube.svg';
-
+import newspaperLogo from '../../assets/images/newspaper.svg';
 
 const twitterProps = {
     logoImage: twitterLogo, 
@@ -18,6 +18,12 @@ const youtubeProps = {
     buttonText: 'Videos',
 }
 
+const newsProps = {
+    logoImage: newspaperLogo,
+    buttonText: 'News',
+}
+
 storiesOf('InformationButton', module)
 .add('Twitter Button', () => <InformationButton {...twitterProps} />)
 .add('Youtube Button', () => <InformationButton {...youtubeProps} />)
+.add('News Button', () => <InformationButton {...newsProps} />)

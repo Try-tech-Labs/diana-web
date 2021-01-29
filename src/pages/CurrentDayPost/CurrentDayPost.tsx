@@ -6,6 +6,7 @@ import InformationButton from '../../components/InformationButton'
 
 import twitterLogo from '../../assets/images/twitter.svg';
 import youtubeLogo from '../../assets/images/youtube.svg';
+import newspaperLogo from '../../assets/images/newspaper.svg';
 
 export default function CurrentDayPost(){
     const twitterProps = {
@@ -16,6 +17,11 @@ export default function CurrentDayPost(){
     const youtubeProps = {
         logoImage: youtubeLogo,
         buttonText: 'Videos',
+    }
+
+    const newsProps = {
+        logoImage: newspaperLogo,
+        buttonText: 'News',
     }
     
     return (
@@ -28,6 +34,7 @@ export default function CurrentDayPost(){
                 <InformationButton {...youtubeProps} />
             </VideoData>
             <NewsData data-testid="news-data">
+                <InformationButton {...newsProps} />
             </NewsData>
         </PostContent>
     )
