@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-import defaultLogo from '../../assets/images/default.svg';
-
-
 export const Link = styled.a`
     background: #000000;
     border-radius: 10px;
@@ -14,7 +11,7 @@ export const Link = styled.a`
         text-decoration: underline  ;
         color: white;
         box-shadow: 0px 1px 4px #FFFFFF;
-        div{
+        img{
             opacity: 1;
         }
     }
@@ -24,13 +21,14 @@ export const LinkContent = styled.div`
     
 `
 
-export const ButtonImage = styled.div`
-    background: url(${props => (props.backgroundImage || defaultLogo)});
-    display: block;
+export const ButtonImage = styled.img`
     width: 4vw;
     height: 4vw;
+    display: block;
     margin: 0 auto;
     opacity: 0.6;
+    background-size: cover;
+    background-position: center;
 `
 
 export const LinkText = styled.p`
@@ -38,5 +36,6 @@ export const LinkText = styled.p`
     margin: 0;
     font-size: 2vh;
     padding-top: 12px;
+    text-align: center;
 `
 

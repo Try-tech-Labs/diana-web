@@ -5,12 +5,25 @@ import { PostContent, DateIndicator, TwitterData, VideoData, NewsData } from './
 import InformationButton from '../../components/InformationButton'
 
 import twitterLogo from '../../assets/images/twitter.svg';
+import youtubeLogo from '../../assets/images/youtube.svg';
+import newspaperLogo from '../../assets/images/newspaper.svg';
 
 export default function CurrentDayPost(){
     const twitterProps = {
         logoImage: twitterLogo, 
-        buttonText: 'Tweets'
+        buttonText: 'Tweets',
     }
+
+    const youtubeProps = {
+        logoImage: youtubeLogo,
+        buttonText: 'Videos',
+    }
+
+    const newsProps = {
+        logoImage: newspaperLogo,
+        buttonText: 'News',
+    }
+    
     return (
         <PostContent>
             <DateIndicator>NOW</DateIndicator>
@@ -18,8 +31,10 @@ export default function CurrentDayPost(){
                 <InformationButton {...twitterProps} />
             </TwitterData>
             <VideoData data-testid="video-data">
+                <InformationButton {...youtubeProps} />
             </VideoData>
             <NewsData data-testid="news-data">
+                <InformationButton {...newsProps} />
             </NewsData>
         </PostContent>
     )
