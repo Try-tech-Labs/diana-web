@@ -41,4 +41,14 @@ describe("Current day post", () => {
         const { getByText } = wrapper;
         getByText('News')
     })
+
+    it('renders trending topics', () => {
+        const { wrapper } = setup();
+        const { getByText } = wrapper;
+        getByText('Dinis')
+        getByText('Yuri Alberto')
+        getByText('Claudinho')
+        getByText('Morumbi')
+        getByText('Daniel Alves')
+    })
 })

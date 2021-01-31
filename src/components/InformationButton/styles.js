@@ -6,7 +6,6 @@ export const Link = styled.a`
     display: block;
     width: fit-content;
     padding: 1vw 2vw 1vw 2vw;
-    margin-top: 4vh;
     &:hover{
         text-decoration: underline  ;
         color: white;
