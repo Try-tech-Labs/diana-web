@@ -8,7 +8,7 @@ export const PostContent = styled.div`
     position: relative;
     top: 6vh;
     display: grid;
-    grid-template-columns: 8fr 14fr 14fr 14fr;
+    grid-template-columns: 1fr 4fr;
 `
 
 export const DateIndicator = styled.h1`
@@ -39,3 +39,50 @@ export const VideoData = styled.div`
 export const NewsData = styled.div`
     margin: 0 auto;
 `
+
+export const InformationWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+`
+
+export const ButtonList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    align-items: center;
+`
+
+export const TrendingTopicsWrapper = styled.div`
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    align-items: flex-end;
+`
+
+export const TrendingTopicTitle = styled.h3`
+    font-size: 24px;
+    font-weight: bold;
+
+`
+
+export const TrendingTopicsList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-size:20px;
+    padding: 20px;
+`
+
+export const TrendingTopic = styled.div`
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+`
+
+export const TopicRank = styled.span`
+    font-weight: 700;
+`
+
+export const TopicName = styled.p`
+    font-weight: 400;
+`
+
