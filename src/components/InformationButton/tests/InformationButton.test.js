@@ -7,12 +7,12 @@ import InformationButton from '../InformationButton';
 
 import defaultImage from '../../../assets/images/default.svg'
 
-const props = {
-    logoImage: defaultImage,
-    buttonText: "Default Text"
-}
-
-const setup = () => {
+const setup = (customProps = {}) => {
+    const props = {
+        logoImage: defaultImage,
+        buttonText: "Default Text",
+        ...customProps
+    }
     const wrapper = render(<InformationButton {...props} />);
     return { wrapper };
   };
@@ -26,6 +26,6 @@ describe("InformationButton", () => {
         const { wrapper } = setup()
         const { getByText, getByTestId } = wrapper
         getByText('Default Text')
-        getByTestId('information-button-logo')
+        expect(getByTestId('information-button-logo')).toBeVisible()
     })
 })
