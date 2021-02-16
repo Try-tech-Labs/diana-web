@@ -1,65 +1,60 @@
-import React from 'react'
-
-import { PostContent, DateIndicator, TwitterData, VideoData, NewsData, InformationWrapper, ButtonList, TrendingTopicsWrapper, TrendingTopicTitle, TrendingTopicsList, TopicRank, TopicName, TrendingTopic } from './styles';
-
-import InformationButton from '../../components/InformationButton'
+import React, {useCallback, useState} from 'react'
 
 import twitterLogo from '../../assets/images/twitter.svg';
 import youtubeLogo from '../../assets/images/youtube.svg';
 import newspaperLogo from '../../assets/images/newspaper.svg';
 
+import { PostContent, DateIndicator, TwitterData, VideoData, NewsData, InformationWrapper, ButtonList, TrendingTopicsWrapper, TrendingTopicTitle, TrendingTopicsList, TopicRank, TopicName, TrendingTopic } from './styles';
+
+import InformationButton from '../../components/InformationButton'
+import InformationDialog from '../../components/InformationDialog'
+
+interface TrendingTopic {
+    topic_position: number,
+    topic_name: string
+}
+
 export default function CurrentDayPost(){
-    const twitterProps = {
-        logoImage: twitterLogo, 
-        buttonText: 'Tweets',
-    }
 
-    const youtubeProps = {
-        logoImage: youtubeLogo,
-        buttonText: 'Videos',
-    }
-
-    const newsProps = {
-        logoImage: newspaperLogo,
-        buttonText: 'News',
-    }
-
-    const trendingTopics =[
+    const [showInformationDialog, setShowInformationDialog] = useState(false)
+    
+    const [trendingTopics, setTrendingTopics] = useState<TrendingTopic[]>([
         {
             topic_position: 1,
-            topic_name: 'Dinis'
-        },
+            topic_name: 'Trending topic'
+        }, 
         {
             topic_position: 2,
-            topic_name: 'Yuri Alberto'
-        },
-        {
-            topic_position: 3,
-            topic_name: 'Claudinho'
-        },
-        {
-            topic_position: 4,
-            topic_name: 'Morumbi'
-        },
-        {
-            topic_position: 5,
-            topic_name: 'Daniel Alves'
-        },
-    ]
+            topic_name: 'Trending topic 2'
+        }, 
+    ])
+    const [dialogDataType, setDialogDataType] = useState('')
+
+    const openInformationDialog = useCallback((dataType:string) => {
+        setDialogDataType(dataType)
+        setShowInformationDialog(true)
+    }, [setShowInformationDialog])
+
+    const closeInformationDialog = useCallback(() => {
+        setShowInformationDialog(false)
+    }, [setShowInformationDialog])
     
     return (
         <PostContent>
+            {showInformationDialog && (
+                <InformationDialog dataType={dialogDataType} trendingTopics={trendingTopics} closeModal={closeInformationDialog} />
+            )}
             <DateIndicator>NOW</DateIndicator>
             <InformationWrapper>
                 <ButtonList>
-                    <TwitterData data-testid="twitter-data">
-                        <InformationButton {...twitterProps} />
+                    <TwitterData onClick={() => openInformationDialog('tweet')} data-testid="twitter-data">
+                        <InformationButton logoImage={twitterLogo}  buttonText={'Tweets'} />
                     </TwitterData>
-                    <VideoData data-testid="video-data">
-                        <InformationButton {...youtubeProps} />
+                    <VideoData onClick={() => openInformationDialog('video')} data-testid="video-data">
+                        <InformationButton logoImage={youtubeLogo} buttonText={'Videos'} />
                     </VideoData>
-                    <NewsData data-testid="news-data">
-                        <InformationButton {...newsProps} />
+                    <NewsData onClick={() => openInformationDialog('news')} data-testid="news-data">
+                        <InformationButton logoImage={newspaperLogo} buttonText={'News'} />
                     </NewsData>
                 </ButtonList>
                 <TrendingTopicsWrapper>
@@ -67,7 +62,7 @@ export default function CurrentDayPost(){
                     <TrendingTopicsList>
                         {trendingTopics.map(topic => {
                             return (
-                                <TrendingTopic>
+                                <TrendingTopic key={topic.topic_position}>
                                     <TopicRank>{topic.topic_position}º</TopicRank>
                                     <TopicName>{topic.topic_name}</TopicName>
                                 </TrendingTopic>

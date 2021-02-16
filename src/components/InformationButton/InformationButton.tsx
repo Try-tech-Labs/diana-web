@@ -9,7 +9,7 @@ interface InformationButton {
 
 const InformationButton: React.FunctionComponent<InformationButton>= ({ logoImage, buttonText }) => {
     return(
-        <Link href="/">
+        <Link>
             <LinkContent>
                 <ButtonImage data-testid="information-button-logo" src={logoImage} />
                 <LinkText>{buttonText}</LinkText>

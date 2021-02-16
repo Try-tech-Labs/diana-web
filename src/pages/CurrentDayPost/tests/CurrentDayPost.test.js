@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, fireEvent, waitForElement } from "@testing-library/react";
 
 import CurrentDayPost from '../CurrentDayPost';
 
@@ -45,10 +45,31 @@ describe("Current day post", () => {
     it('renders trending topics', () => {
         const { wrapper } = setup();
         const { getByText } = wrapper;
-        getByText('Dinis')
-        getByText('Yuri Alberto')
-        getByText('Claudinho')
-        getByText('Morumbi')
-        getByText('Daniel Alves')
+        getByText('Trending topic')
+        getByText('Trending topic 2')
+    })
+
+    it('shows tweets data dialog on click twitter button', async () => {
+        const { wrapper } = setup();
+        const { getByText, getByTestId } = wrapper;
+        const twitterButton = getByTestId('twitter-data')
+        fireEvent.click(twitterButton)
+        await waitForElement(() => getByText("Today's Tweets"))
+    })
+
+    it('shows videos data dialog on click videos button', async () => {
+        const { wrapper } = setup();
+        const { getByText, getByTestId } = wrapper;
+        const twitterButton = getByTestId('video-data')
+        fireEvent.click(twitterButton)
+        await waitForElement(() => getByText("Today's Videos"))
+    })
+
+    it('shows news data dialog on click news button', async () => {
+        const { wrapper } = setup();
+        const { getByText, getByTestId } = wrapper;
+        const twitterButton = getByTestId('news-data')
+        fireEvent.click(twitterButton)
+        await waitForElement(() => getByText("Today's News"))
     })
 })
