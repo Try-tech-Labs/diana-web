@@ -9,8 +9,8 @@ const setup = (customProps = {}) => {
     const props = {
         closeModal: jest.fn(),
         trendingTopics: [{
-            topic_position: 1,
-            topic_name: 'Newest topic'
+            trends_position: 1,
+            title: 'Newest topic'
         }],
         dataType: '',
         ...customProps,

@@ -5,6 +5,15 @@ import { cleanup, render, fireEvent, waitForElement } from "@testing-library/rea
 
 import CurrentDayPost from '../CurrentDayPost';
 
+import { getPostList } from '../../../services/services'
+
+import { posts } from './__mocks__/posts'
+
+
+jest.mock('../../../services/services', () => ({
+    getPostList: jest.fn(),
+}))
+
 const setup = () => {
     const wrapper = render(<CurrentDayPost />);
     return { wrapper };
@@ -15,38 +24,21 @@ describe("Current day post", () => {
       cleanup();
     });
 
-    it("renders with correct information", () => {
+    beforeEach(() => {
+        getPostList.mockImplementation(() => Promise.resolve(posts))
+      })
+
+    it("renders with correct information", async () => {
         const { wrapper } = setup();
         const { getByText, getByTestId } = wrapper;
         getByText('NOW')
         getByTestId('twitter-data')
         getByTestId('video-data')
         getByTestId('news-data')
-    })
-
-    it('renders twitter button', () => {
-        const { wrapper } = setup();
-        const { getByText } = wrapper;
         getByText('Tweets')
-    })
-
-    it('renders videos button', () => {
-        const { wrapper } = setup();
-        const { getByText } = wrapper;
         getByText('Videos')
-    })
-
-    it('renders news button', () => {
-        const { wrapper } = setup();
-        const { getByText } = wrapper;
         getByText('News')
-    })
-
-    it('renders trending topics', () => {
-        const { wrapper } = setup();
-        const { getByText } = wrapper;
-        getByText('Trending topic')
-        getByText('Trending topic 2')
+        await waitForElement(() => getByText('#VeggieFood'))
     })
 
     it('shows tweets data dialog on click twitter button', async () => {

@@ -27,8 +27,8 @@ import {
 import CloseButton from '../../components/CloseButton'
 
 interface TrendingTopic {
-    topic_position: number,
-    topic_name: string
+    trends_position: number,
+    title: string
 }
 
 interface ContentItem {
@@ -178,9 +178,9 @@ export default function InformationDialog (props:InformationDialogProps){
                                 active: (index === 0 ? true : null)
                             }
                             return (
-                                <TrendingTopicWrapper key={item.topic_position} active={props.active}>
-                                    <TrendingTopicRankLabel>{item.topic_position}º</TrendingTopicRankLabel>
-                                    <TrendingTopicName> - {item.topic_name}</TrendingTopicName>
+                                <TrendingTopicWrapper key={item.trends_position} active={props.active}>
+                                    <TrendingTopicRankLabel>{item.trends_position}º</TrendingTopicRankLabel>
+                                    <TrendingTopicName> - {item.title}</TrendingTopicName>
                                 </TrendingTopicWrapper>
                             )
                         })
