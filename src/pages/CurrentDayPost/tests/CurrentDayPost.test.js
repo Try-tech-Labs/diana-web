@@ -7,7 +7,7 @@ import CurrentDayPost from '../CurrentDayPost';
 
 import { getPostList } from '../../../services/services'
 
-import { posts } from './__mocks__/posts'
+import { posts } from '../../../utils/tests/__mocks__/posts'
 
 
 jest.mock('../../../services/services', () => ({
@@ -26,7 +26,7 @@ describe("Current day post", () => {
 
     beforeEach(() => {
         getPostList.mockImplementation(() => Promise.resolve(posts))
-      })
+    })
 
     it("renders with correct information", async () => {
         const { wrapper } = setup();
