@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 
 import twitterLogo from '../../assets/images/twitter.svg';
 import youtubeLogo from '../../assets/images/youtube.svg';
@@ -9,26 +9,67 @@ import { PostContent, DateIndicator, TwitterData, VideoData, NewsData, Informati
 import InformationButton from '../../components/InformationButton'
 import InformationDialog from '../../components/InformationDialog'
 
+import { getPostList } from '../../services/services'
+
+interface Tag {
+    id: number,
+    title: string,
+    creation_date: Date
+}
+
+interface Content {
+    id:number,
+    tags: Tag[],
+    title: string,
+    creation_date: Date,
+    author: string,
+    source: string,
+    source_url: string,
+    thumbnail: string,
+    content: string,
+    pos: number
+}
+
+interface Post {
+    id:number,
+    category: {
+        id: number,
+        title: string,
+        creation_date: Date, 
+        description: string,
+    },
+    videos: Content[],
+    tweets: Content[],
+    news: Content[],
+    trending_topics: TrendingTopic[],
+    title: string,
+    creation_date: Date,
+    search_count: number
+}
+
 interface TrendingTopic {
-    topic_position: number,
-    topic_name: string
+    trends_position: number,
+    title: string
 }
 
 export default function CurrentDayPost(){
 
     const [showInformationDialog, setShowInformationDialog] = useState(false)
-    
-    const [trendingTopics, setTrendingTopics] = useState<TrendingTopic[]>([
-        {
-            topic_position: 1,
-            topic_name: 'Trending topic'
-        }, 
-        {
-            topic_position: 2,
-            topic_name: 'Trending topic 2'
-        }, 
-    ])
+    const [currentDayPost, setCurrentDayPost] = useState<Post[]>()
+    const [trendingTopics, setTrendingTopics] = useState<TrendingTopic[]>([])
     const [dialogDataType, setDialogDataType] = useState('')
+
+    useEffect(() => {
+        const retrivePosts = async () => {
+            const response = await getPostList()
+            if (response){
+                setCurrentDayPost(response[0])
+                const topics = response[0].trending_topics
+                setTrendingTopics(topics.sort((itemA:TrendingTopic, itemB:TrendingTopic) => itemA.trends_position - itemB.trends_position))
+            }
+        }
+        retrivePosts()
+    }, [getPostList, setCurrentDayPost])
 
     const openInformationDialog = useCallback((dataType:string) => {
         setDialogDataType(dataType)
@@ -62,9 +103,9 @@ export default function CurrentDayPost(){
                     <TrendingTopicsList>
                         {trendingTopics.map(topic => {
                             return (
-                                <TrendingTopic key={topic.topic_position}>
-                                    <TopicRank>{topic.topic_position}º</TopicRank>
-                                    <TopicName>{topic.topic_name}</TopicName>
+                                <TrendingTopic key={topic.trends_position}>
+                                    <TopicRank>{topic.trends_position}º</TopicRank>
+                                    <TopicName>{topic.title}</TopicName>
                                 </TrendingTopic>
                             )
                         })}
